@@ -11,6 +11,6 @@ In this template, I'm having the background processes count to 5 and then show t
 The background process adds messages to the queue. 
 The Tkinter GUI app checks the queue every 100 milliseconds, and then displays the messages on a terminal like box. 
 
-Below is an example for Linux. Non of the background processes freeze the GUI.
+Below is an example for Linux. None of the background processes freeze the GUI. It works for Windows as well.
 
 ![linux_example](linux-example.png)

@@ -11,15 +11,12 @@ import subprocess as sp
 import platform
 
 def look_at_root_dir() -> str:
-
     if platform.system() == 'Windows':
         cp = sp.run(['DIR', 'C:\\'], shell=True, text=True, stdout=sp.PIPE, stderr=sp.PIPE)
-        text = cp.stdout
     else:
         cp = sp.run(['ls', '/'], text=True, stdout=sp.PIPE, stderr=sp.PIPE)
-        text = cp.stdout
 
-    return text
+    return cp.stdout
 
 class QueueState(enum.Enum):
     READY = enum.auto()
