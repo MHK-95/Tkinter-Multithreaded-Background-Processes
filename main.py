@@ -10,13 +10,14 @@ import time
 import subprocess as sp
 import platform
 
+
 def look_at_root_dir() -> str:
     if platform.system() == 'Windows':
         cp = sp.run(['DIR', 'C:\\'], shell=True, text=True, stdout=sp.PIPE, stderr=sp.PIPE)
     else:
         cp = sp.run(['ls', '/'], text=True, stdout=sp.PIPE, stderr=sp.PIPE)
-
     return cp.stdout
+
 
 class QueueState(enum.Enum):
     READY = enum.auto()
@@ -36,7 +37,7 @@ class Backend(threading.Thread):
         super().__init__(*args, **kwargs)
         self.queue = queue
 
-    def run(self):
+    def run(self) -> None:
         self.queue.put(QueueElement(QueueState.READY, 'Process is starting.\n'))
 
         append_queue = lambda message: self.queue.put(QueueElement(QueueState.RUNNING, message))
