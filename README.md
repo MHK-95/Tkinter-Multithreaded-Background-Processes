@@ -1,6 +1,6 @@
 # Tkinter-Template-Multithreaded-Background-Processes
 
-This code has been tested for Python 3.8.1, and doesn't have any 3rd party packages.
+This code has been tested for Python 3.7.4 and up, and doesn't have any 3rd party packages.
 
 This is a template for Tkinter GUI apps to run multiple processes without blocking the main thread and causing the GUI app to freeze.
 

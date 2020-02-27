@@ -9,6 +9,7 @@ from typing import NamedTuple, Optional, List
 import time
 import subprocess as sp
 import platform
+import sys
 
 
 def look_at_root_dir() -> str:
@@ -135,6 +136,12 @@ class TextBoxOutput(tk.Frame):
 
 
 if __name__ == "__main__":
+    # Check Version
+    if sys.version_info.major < 3 or (sys.version_info.major == 3 and sys.version_info.minor < 7) or \
+            (sys.version_info.major == 3 and sys.version_info.minor == 7 and sys.version_info.micro < 4):
+        print('\nThe python version needs to be 3.7.4 or greater.', file=sys.stderr)
+        sys.exit(1)
+
     app = App()
     app.title('Tkinter Template.')
     app.mainloop()
